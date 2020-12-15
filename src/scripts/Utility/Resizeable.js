@@ -1,3 +1,5 @@
+// This hold the resize logic for panel
+
 function ResizeableR(props) {
   let sideBar = props.parentElement;
   let prevX = 0;
@@ -8,7 +10,8 @@ function ResizeableR(props) {
     const mouseMove = (e) => {
       const rect = sideBar.getBoundingClientRect();
 
-      sideBar.style.flexBasis = rect.width - (prevX - e.clientX) + "px";
+      // sideBar.style.flexBasis = rect.width - (prevX - e.clientX) + "px";
+      sideBar.style.width = rect.width - (prevX - e.clientX) + "px";
       prevX = e.clientX;
     };
 
@@ -35,7 +38,8 @@ function ResizeableL(props) {
       const rect = sideBar.getBoundingClientRect();
 
       sideBar.style.flexGrow = 0;
-      sideBar.style.flexBasis = rect.width - (e.clientX - prevX) + "px";
+      // sideBar.style.flexBasis = rect.width - (e.clientX - prevX) + "px";
+      sideBar.style.width = rect.width - (e.clientX - prevX) + "px";
       prevX = e.clientX;
     };
 
